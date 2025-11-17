@@ -30,7 +30,7 @@ The engine takes a user question in natural language and returns the **closest m
 
 ---
 
-## ✨ Features
+## Features
 
 - **Semantic matching**, not just keyword search  
 - **Multi-domain support**: `support`, `hr`, `education`, or all combined  
