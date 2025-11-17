@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>AI-Powered Semantic FAQ Engine</strong><br>
-  <span>Top-K retrieval • FastAPI • SentenceTransformers • Business-ready NLP</span>
+  <span>Top-K retrieval • FastAPI • SentenceTransformers • Streamlit Web UI</span>
 </p>
 
 <p align="center">
@@ -17,106 +17,137 @@
 </p>
 
 ---
-# SemanticMatch
+SemanticMatch is a lightweight **semantic search engine** for business FAQs.  
+It uses **SentenceTransformers embeddings**, **cosine similarity**, and a **FastAPI backend** to return the **Top-K closest FAQ questions and answers**.
 
-SemanticMatch is a lightweight semantic matching engine for business FAQs, built with **Python**, **SentenceTransformers** and **FastAPI**.
+It supports multiple use cases:
 
-It is designed to power:
-- customer support assistants (FAQ, helpdesk),
-- HR self-service portals,
-- education / course support (student FAQs).
+- **Customer support** (orders, payments, shipping)  
+- **HR helpdesk** (leave, payslips, remote work)  
+- **Education / EdTech** (courses, certificates, instructors)
 
-The engine takes a user question in natural language and returns the **closest matching FAQ question and answer**, using sentence embeddings and cosine similarity.
-
----
-
-## Features
-
-- **Semantic matching**, not just keyword search  
-- **Multi-domain support**: `support`, `hr`, `education`, or all combined  
-- **JSON-based dataset** (`data/samples/faq.json`) for easy editing and extension  
-- **Configurable** similarity threshold and embedding model  
-- **FastAPI endpoint** (`POST /match`) with interactive docs at `/docs`  
-- Clean, modular code structure (`src/embeddings.py`, `src/matcher.py`, `src/data_loader.py`, etc.)
+A clean **Streamlit Web UI** is included for interactive testing.
 
 ---
 
-## How it works
+# Features
 
-1. FAQ data is stored in `data/samples/faq.json`, organized by domain:
-   - `support` (orders, payments, shipping, etc.)
-   - `hr` (leave, payslips, remote work, onboarding)
-   - `education` (courses, grades, certificates, quizzes)
-
-2. `src/data_loader.py` loads questions and answers from the JSON file and applies basic preprocessing.
-
-3. `src/embeddings.py` uses a SentenceTransformers model (`all-MiniLM-L6-v2`) to convert questions into dense vector embeddings.
-
-4. `src/matcher.py`:
-   - stores embeddings for all known questions,
-   - encodes the user query,
-   - computes cosine similarity,
-   - picks the best match and checks it against a configurable threshold.
-
-5. `src/api.py` exposes a `POST /match` endpoint that:
-   - accepts `query` and `domain`,
-   - runs the matcher,
-   - returns the best question, answer, similarity score and a `meets_threshold` flag.
+- **Semantic matching**, not keyword search  
+- **Top-K retrieval** with scores and confidence check  
+- Multi-domain dataset (`support`, `hr`, `education`, `all`)  
+- Configurable similarity threshold  
+- Cached matchers per domain (fast repeated queries)  
+- **FastAPI endpoint** with `/docs`  
+- **Web UI** built in Streamlit  
+- CLI demo for quick local testing  
+- Clean production-style project structure
 
 ---
 
-## Tech stack
+# How It Works
 
-- Python 3.10
-- [sentence-transformers](https://www.sbert.net/)
-- [NumPy](https://numpy.org/)
-- [scikit-learn](https://scikit-learn.org/)
-- [FastAPI](https://fastapi.tiangolo.com/)
-- [Uvicorn](https://www.uvicorn.org/)
-- Pydantic
+1. Questions + answers are stored in `data/samples/faq.json`.
+2. `data_loader.py` loads the FAQ for the chosen domain.
+3. `embeddings.py` computes dense vector embeddings with `SentenceTransformers`.
+4. `matcher.py` computes **cosine similarity** and returns the Top-K results.
+5. `api.py` exposes a `/match` API endpoint.
+6. `ui/app.py` provides a Streamlit user interface.
 
 ---
 
-## Getting started
+# Architecture Diagram
 
-### 1. Clone the repository
-```bash
-git clone https://github.com/<your-username>/semanticMatch.git
-cd semanticMatch
+```mermaid
+flowchart TD
+    A[User Question] --> B[Domain Selection]
+    B --> C[Cached SemanticMatcher]
+    C --> D[Embedding Engine<br/>(SentenceTransformers)]
+    D --> E[Cosine Similarity Ranking]
+    E --> F[Top-K Matches<br/>+ Confidence Score]
+    F --> G[API or UI Response]
 ```
-### 2. pip install -r requirements.txt
+### Tech Stack
 ```bash
+Python 3.10
+SentenceTransformers (MiniLM)
+NumPy
+scikit-learn (cosine similarity)
+FastAPI
+Pydantic
+Streamlit
+Uvicorn
+```
+### Installation
+```
+git clone https://github.com/Conyekp2/semanticMatch.git
+cd semanticMatch
+python3 -m venv venv
+source venv/bin/activate   # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
-### 3. Run the CLI demo
-```bash
-python3 demo_basic.py
+### CLI Demo (Top-K Search)
 ```
-### 4. Run the API
+python3 demo_basic.py
+You can:
+  - choose a domain: support, hr, education, all
+  - ask questions in natural language
+  - get the Top-3 closest FAQ entries
+```
+### API Usage (FastAPI)
 ```bash
 uvicorn src.api:app --reload --port 8000
+Docs:
+👉 http://127.0.0.1:8000/docs
+
+Health check:
+👉 http://127.0.0.1:8000/health
 ```
-#### Open interactive docs:
-```bash
-http://127.0.0.1:8000/docs 
+### Web UI Demo (Streamlit)
+SemanticMatch includes a clean web interface for interactive testing.
+#### Run the UI
 ```
-# Project structure
+streamlit run ui/app.py
+👉 http://localhost:8501
+```
+#### UI Features
+```
+Select domain
+Choose Top-K
+Adjust similarity threshold
+Real-time matching
+Score visualization with progress bars
+```
+### Project Structure
 ```bash
 semanticMatch/
 │
 ├── src/
-│   ├── __init__.py
-│   ├── api.py            # FastAPI app exposing /match
-│   ├── config.py         # Model + matching configuration
+│   ├── api.py            # FastAPI app (/match, /health)
+│   ├── config.py         # Model + matcher configuration
 │   ├── embeddings.py     # Embedding engine (SentenceTransformers)
-│   ├── matcher.py        # Semantic matching logic (cosine similarity)
+│   ├── matcher.py        # Cosine similarity + Top-K logic
 │   ├── preprocess.py     # Basic text normalization
 │   └── data_loader.py    # Load FAQ data from JSON
 │
 ├── data/
 │   └── samples/
-│       └── faq.json      # Multi-domain business FAQ dataset
+│       └── faq.json      # Business multi-domain FAQ dataset
 │
-├── demo_basic.py         # CLI demo for quick testing
+├── ui/
+│   └── app.py            # Streamlit user interface
+│
+├── demo_basic.py         # CLI demo
 ├── requirements.txt
 └── README.md
+```
+### About This Project
+SemanticMatch was developed as an applied NLP project combining:
+  - semantic search
+  - transformer embeddings
+  - API design
+  - UX for knowledge retrieval
+  - HR/Support/EdTech use cases
+
+It is designed to demonstrate practical, production-ready NLP engineering.
+
+⭐ If you find this project interesting, feel free to star the repo!
