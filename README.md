@@ -32,16 +32,16 @@ The engine takes a user question in natural language and returns the **closest m
 
 ## ✨ Features
 
-- 🔍 **Semantic matching**, not just keyword search  
-- 📚 **Multi-domain support**: `support`, `hr`, `education`, or all combined  
-- 📁 **JSON-based dataset** (`data/samples/faq.json`) for easy editing and extension  
-- ⚙️ **Configurable** similarity threshold and embedding model  
-- 🌐 **FastAPI endpoint** (`POST /match`) with interactive docs at `/docs`  
-- 🧱 Clean, modular code structure (`src/embeddings.py`, `src/matcher.py`, `src/data_loader.py`, etc.)
+- **Semantic matching**, not just keyword search  
+- **Multi-domain support**: `support`, `hr`, `education`, or all combined  
+- **JSON-based dataset** (`data/samples/faq.json`) for easy editing and extension  
+- **Configurable** similarity threshold and embedding model  
+- **FastAPI endpoint** (`POST /match`) with interactive docs at `/docs`  
+- Clean, modular code structure (`src/embeddings.py`, `src/matcher.py`, `src/data_loader.py`, etc.)
 
 ---
 
-## 🧠 How it works
+## How it works
 
 1. FAQ data is stored in `data/samples/faq.json`, organized by domain:
    - `support` (orders, payments, shipping, etc.)
@@ -65,7 +65,7 @@ The engine takes a user question in natural language and returns the **closest m
 
 ---
 
-## 🧰 Tech stack
+## Tech stack
 
 - Python 3.10
 - [sentence-transformers](https://www.sbert.net/)
@@ -77,7 +77,7 @@ The engine takes a user question in natural language and returns the **closest m
 
 ---
 
-## 🚀 Getting started
+## Getting started
 
 ### 1. Clone the repository
 ```bash
@@ -120,6 +120,3 @@ semanticMatch/
 ├── demo_basic.py         # CLI demo for quick testing
 ├── requirements.txt
 └── README.md
-
-
-
