@@ -1,0 +1,88 @@
+{
+  "support": [
+    {
+      "question": "How can I reset my password?",
+      "answer": "To reset your password, click \"Forgot password\" on the login page, enter your email address, then follow the link sent to your inbox to choose a new password."
+    },
+    {
+      "question": "How do I track my order?",
+      "answer": "Go to \"My Orders\" in your account dashboard and click on the relevant order to see the current delivery status and tracking link."
+    },
+    {
+      "question": "Do you offer customer support on weekends?",
+      "answer": "Yes, we offer limited support on weekends. You can reach us by email between 10:00 and 16:00, and we will respond within 24 hours."
+    },
+    {
+      "question": "Can I change or cancel my booking?",
+      "answer": "You can change or cancel your booking within 24 hours of confirmation by going to \"My Bookings\" and selecting the option \"Modify\" or \"Cancel\"."
+    },
+    {
+      "question": "How long does shipping take?",
+      "answer": "Standard shipping takes 3 to 5 business days once your order is confirmed. Express shipping is available in some regions and takes 1 to 2 business days."
+    },
+    {
+      "question": "What payment methods do you accept?",
+      "answer": "We currently accept credit and debit cards (Visa, MasterCard), PayPal, and in some countries local payment methods such as bank transfer."
+    },
+    {
+      "question": "My payment was declined. What should I do?",
+      "answer": "If your payment was declined, first check that your card details are correct and that you have sufficient funds. You can also contact your bank or try another payment method."
+    },
+    {
+      "question": "I received a damaged item. How can I report it?",
+      "answer": "If you received a damaged item, please contact support within 7 days of delivery, with your order number and photos of the damage. We will review your case and offer a replacement or refund."
+    }
+  ],
+  "hr": [
+    {
+      "question": "How do I apply for annual leave?",
+      "answer": "Submit your annual leave request through the HR portal under \"Time Off Management\". Your manager will receive a notification and approve or decline the request."
+    },
+    {
+      "question": "Where can I find my payslips?",
+      "answer": "Your payslips are available in the HR portal under \"My Documents\". You can view them online or download them as PDF files."
+    },
+    {
+      "question": "What is the process for remote work approval?",
+      "answer": "Remote work requests must be submitted to your manager at least 48 hours in advance using the \"Remote Work\" form. Once approved, HR will update your schedule in the system."
+    },
+    {
+      "question": "Who should I contact if my personal details change?",
+      "answer": "If your address, phone number, or bank details change, update your profile in the HR portal and, if needed, notify HR by email for confirmation."
+    },
+    {
+      "question": "How can I access the employee benefits information?",
+      "answer": "You can find all information about health insurance, retirement plans, and other benefits in the HR portal under the \"Benefits\" section."
+    },
+    {
+      "question": "What should I do on my first day as a new employee?",
+      "answer": "On your first day, you should check in with your manager, attend the onboarding session if scheduled, and complete the mandatory HR forms in the HR portal."
+    }
+  ],
+  "education": [
+    {
+      "question": "How do I access my online courses?",
+      "answer": "You can access your online courses from the learning portal. Log in, then click on the \"Courses\" tab to see all the modules you are enrolled in."
+    },
+    {
+      "question": "Where can I download my course certificates?",
+      "answer": "Once you complete a course, your certificate will be available in your profile under \"Achievements\". You can view it online or download it as a PDF."
+    },
+    {
+      "question": "How do I contact my course instructor?",
+      "answer": "You can contact your instructor from the course page using the \"Instructor Contact\" or \"Messages\" section. Some instructors also provide office hours."
+    },
+    {
+      "question": "I cannot access a video lesson. What should I do?",
+      "answer": "If you cannot access a video, first try refreshing the page and checking your internet connection. If the problem continues, contact technical support with the course name and lesson title."
+    },
+    {
+      "question": "How are my course grades calculated?",
+      "answer": "Course grades are usually calculated based on quizzes, assignments, participation, and final exams. The exact grading policy is described in the course syllabus."
+    },
+    {
+      "question": "Can I retake a quiz or assignment?",
+      "answer": "Retake options depend on the course policy. Some quizzes allow multiple attempts, while others do not. Check the instructions for each activity or ask your instructor."
+    }
+  ]
+}
