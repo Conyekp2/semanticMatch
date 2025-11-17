@@ -61,9 +61,9 @@ A clean **Streamlit Web UI** is included for interactive testing.
 flowchart TD
     A[User Question] --> B[Domain Selection]
     B --> C[Cached SemanticMatcher]
-    C --> D[Embedding Engine<br/>(SentenceTransformers)]
+    C --> D[Embedding Engine | SentenceTransformers]
     D --> E[Cosine Similarity Ranking]
-    E --> F[Top-K Matches<br/>+ Confidence Score]
+    E --> F[Top-K Matches | Confidence Score]
     F --> G[API or UI Response]
 ```
 ### Tech Stack
@@ -94,7 +94,7 @@ You can:
   - get the Top-3 closest FAQ entries
 ```
 ### API Usage (FastAPI)
-```bash
+```
 uvicorn src.api:app --reload --port 8000
 Docs:
 👉 http://127.0.0.1:8000/docs
