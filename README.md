@@ -57,8 +57,6 @@ A clean **Streamlit Web UI** is included for interactive testing.
 
 # Architecture Diagram
 
-# Architecture Diagram
-
 ```mermaid
 flowchart TD
     A[User Question] --> B[Domain Selection]
@@ -68,6 +66,7 @@ flowchart TD
     E --> F[Top-K Matches | Confidence Score]
     F --> G[API or UI Response]
 ```
+
 ---
 ### Tech Stack
 ```bash
