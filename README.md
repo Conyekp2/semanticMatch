@@ -1,3 +1,22 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Conyekp2/semanticMatch/main/logo.png" width="140" alt="SemanticMatch Logo"/>
+</p>
+
+<h1 align="center">SemanticMatch</h1>
+
+<p align="center">
+  <strong>AI-Powered Semantic FAQ Engine</strong><br>
+  <span>Top-K retrieval • FastAPI • SentenceTransformers • Business-ready NLP</span>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.10-blue" />
+  <img src="https://img.shields.io/badge/FastAPI-Ready-brightgreen" />
+  <img src="https://img.shields.io/badge/Embeddings-MiniLM-orange" />
+  <img src="https://img.shields.io/badge/Status-Active-blueviolet" />
+</p>
+
+---
 # SemanticMatch
 
 SemanticMatch is a lightweight semantic matching engine for business FAQs, built with **Python**, **SentenceTransformers** and **FastAPI**.
