@@ -170,3 +170,8 @@ SemanticMatch was developed as an applied NLP project combining:
 It is designed to demonstrate practical, production-ready NLP engineering.
 
 ⭐ If you find this project interesting, feel free to star the repo!
+
+### Live Demo
+```bash
+Public Streamlit app: 
+👉 https://semanticmatch-o2kgx9r7xs9egkv6a2cr5i.streamlit.app/
