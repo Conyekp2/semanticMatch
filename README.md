@@ -61,12 +61,11 @@ A clean **Streamlit Web UI** is included for interactive testing.
 flowchart TD
     A[User Question] --> B[Domain Selection]
     B --> C[Cached SemanticMatcher]
-    C --> D[Embedding Engine | SentenceTransformers]
+    C --> D[Embedding Engine\n(SentenceTransformers)]
     D --> E[Cosine Similarity Ranking]
-    E --> F[Top-K Matches | Confidence Score]
+    E --> F[Top-K Matches\n+ Confidence Score]
     F --> G[API or UI Response]
-```
-
+  ```
 ---
 ### Tech Stack
 ```bash
