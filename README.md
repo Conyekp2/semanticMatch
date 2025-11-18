@@ -59,12 +59,30 @@ A clean **Streamlit Web UI** is included for interactive testing.
 
 ```mermaid
 flowchart TD
-    A[User Question] --> B[Domain Selection]
-    B --> C[Cached SemanticMatcher]
-    C --> D["Embedding Engine<br> (SentenceTransformers)"]
-    D --> E[Cosine Similarity Ranking]
-    E --> F["Top-K Matches<br> + Confidence Score"]
-    F --> G[API or UI Response]
+
+    %% ===========================
+    %% STYLING
+    %% ===========================
+    classDef input fill:#DDEAFE,stroke:#4F46E5,stroke-width:1px,color:#111,font-weight:bold;
+    classDef process fill:#EDE9FE,stroke:#7C3AED,stroke-width:1px,color:#111;
+    classDef logic fill:#FDF4FF,stroke:#C026D3,stroke-width:1px,color:#111;
+    classDef output fill:#DCFCE7,stroke:#16A34A,stroke-width:1px,color:#111,font-weight:bold;
+
+    %% ===========================
+    %% NODES
+    %% ===========================
+    A[User Question]:::input
+    B[Domain Selection]:::process
+    C[Cached SemanticMatcher]:::process
+    D["Embedding Engine\n(SentenceTransformers)"]:::logic
+    E[Cosine Similarity Ranking]:::logic
+    F["Top-K Matches\n+ Confidence Score"]:::logic
+    G[API or UI Response]:::output
+
+    %% ===========================
+    %% FLOW
+    %% ===========================
+    A --> B --> C --> D --> E --> F --> G
   ```
 ---
 ### Tech Stack
